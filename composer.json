@@ -1,0 +1,24 @@
+{
+  "name": "antoine-waag/sage-tools",
+  "description": "Tools for Sage WordPress Theme, made by Antoine Waag",
+  "type": "library",
+  "license": "MIT",
+  "autoload": {
+    "psr-4": {
+      "AntoineWaag\\SageTools\\": "src/"
+    }
+  },
+  "authors": [
+    {
+      "name": "Antoine Waag",
+      "email": "dev@antoinewaag.fr"
+    }
+  ],
+  "require": {
+    "php": ">=8.2",
+    "vinkla/extended-acf": "^14.5",
+    "roots/acorn": "^5.0",
+    "enshrined/svg-sanitize": "^0.22.0",
+    "livewire/livewire": "^3.6.4"
+  }
+}
