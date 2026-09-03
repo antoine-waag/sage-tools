@@ -74,7 +74,7 @@ class BlockServiceProvider extends SageServiceProvider
 
                                         echo view('blocks/' . $category . '/' . str_replace('acf/', '', $block['name']), [
                                             'block'   => $block,
-                                            'fields'  => get_fields(),
+                                            'fields'  => get_fields() ?: [],
                                             'context' => $class->addToContext(),
                                         ]);
                                     } else {
