@@ -33,6 +33,7 @@ class QueryBuilder
     private array $metaQueries               = [];
     private array $taxQueries                = [];
     private ?string $asClass                 = null;
+    private ?array $asClassArgs              = null;
     private ?int $perPage                    = null;
     private int $page                        = 1;
     private ?int $offset                     = null;
@@ -480,9 +481,10 @@ class QueryBuilder
         }
     }
 
-    public function as (?string $class = null): self
+    public function as (?string $class = null, array $args = []): self
     {
-        $this->asClass = $class;
+        $this->asClass     = $class;
+        $this->asClassArgs = $args;
 
         return $this;
     }
@@ -542,7 +544,17 @@ class QueryBuilder
 
         if (! empty($this->asClass) && class_exists($this->asClass)) {
             $results = array_map(function ($postOrTerm) use ($callback) {
-                return null !== $callback ? $callback(new $this->asClass($postOrTerm)) : new $this->asClass($postOrTerm);
+
+                $instance = null;
+
+                if (! empty($this->asClassArgs)) {
+                    $instance = new $this->asClass($postOrTerm, ...$this->asClassArgs);
+                } else {
+                    $instance = new $this->asClass($postOrTerm);
+                }
+
+                return null !== $callback ? $callback($instance) : $instance;
+
             }, $results);
         } else {
             if (null !== $callback) {
