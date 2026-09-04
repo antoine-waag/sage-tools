@@ -16,9 +16,8 @@
   ],
   "require": {
     "php": ">=8.2",
-    "vinkla/extended-acf": "^14.5",
-    "roots/acorn": "^5.0",
-    "enshrined/svg-sanitize": "^0.22.0",
-    "livewire/livewire": "^3.6.4"
+    "vinkla/extended-acf": "^14.2",
+    "roots/acorn": "^4.3|^5.0",
+    "enshrined/svg-sanitize": "^0.22.0"
   }
 }

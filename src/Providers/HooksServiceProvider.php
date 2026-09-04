@@ -5,10 +5,8 @@ declare (strict_types = 1);
 namespace AntoineWaag\SageTools\Providers;
 
 use AntoineWaag\SageTools\Hooks\AbstractHook;
-use AntoineWaag\SageTools\Hooks\DefaultGutenbergHooks;
 use AntoineWaag\SageTools\Hooks\DefaultWordPressHooks;
 use AntoineWaag\SageTools\Hooks\PostHooks;
-use AntoineWaag\SageTools\Hooks\RankMathHooks;
 use AntoineWaag\SageTools\Services\ClassService;
 use AntoineWaag\SageTools\Services\FileService;
 use Roots\Acorn\Exceptions\SkipProviderException;
@@ -30,8 +28,6 @@ class HooksServiceProvider extends SageServiceProvider
 
             $defaultClasses = [
                 PostHooks::class,
-                RankMathHooks::class,
-                DefaultGutenbergHooks::class,
                 DefaultWordPressHooks::class,
             ];
 
